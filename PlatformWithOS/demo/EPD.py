@@ -136,6 +136,7 @@ to use:
             raise EPDError('image size mismatch')
 
         with open(os.path.join(self._epd_path, 'LE', 'display_inverse'), 'r+b') as f:
+	        image = image.rotate(180) # Flip the image round 180 degrees - upside down	
             f.write(image.tostring())
 
         if self.auto:
